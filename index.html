@@ -1,1 +1,478 @@
-Hello World!
+<html>
+<head>
+<TITLE>COMS 6998-006: Foundations of Blockchains, Fall 2021</TITLE>
+  <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body>
+
+<h1>COMS 6998-006: Foundations of Blockchains</h1>
+
+<p>
+<b><p class="header">Announcements</p></b>
+
+<ul>
+<!--
+<li>4/3: The <a href="e/e1.pdf">first exercise set</a> has been posted.
+Further exercises sets will follow on a weekly basis, posted 
+under "Coursework" below
+on Thursday or Friday.  (Remember these are not to be turned in.)
+-->
+<li>Sept 2: Welcome to COMS 6998-006!</li>
+<!--
+<li>Nov 7: The final (non-cumulative) exam will be in class during the last meeting time, Monday December 9, 10:10-11:25am.
+-->
+</ul>
+
+<b>Instructor:</b> 
+<ul>
+<li>
+<A HREF="http://timroughgarden.org/">Tim
+Roughgarden</A> (Office hours: Tuesdays 5-6pm by Zoom. Email: tr@cs.columbia.edu.) 
+</ul>
+<p>
+
+<b>Course Assistants:</b> 
+<ul>
+<li>
+TBA
+(Office hours: TBA.
+Email: TBA.)
+<!--
+<li>
+Chengyu Lin
+(Office hours: Tuesdays 2-3pm.
+Email: chengyu@cs.columbia.edu.)
+-->
+</ul>
+
+<p> <b>Time/location:</b> 8:40-9:55 AM Tue/Thu in Mudd 834.
+
+<p> <b>Discussion site:</b> TBA.
+  <!--We'll be using
+<a href="https://piazza.com/class#fall2019/comsw49952">Piazza.</a>-->
+
+<!--
+<p> <b>Email address for PSet submissions:</b> 
+cs261submissions@gmail.com
+
+-->
+
+<p> <b>Prerequisites</b>: Undergraduate algorithms (COMS 4231) or equivalent mathematical maturity.  The intended audience is first-year graduate students
+  with a strong interest in and affinity for theoretical computer science.
+
+  <!--
+<p>
+
+<b>Course description:</b>
+Randomness pervades the natural processes around us, from the
+formation of networks, to genetic recombination, to quantum
+physics. Randomness is also a powerful tool that can be leveraged to
+create algorithms and data structures which, in many cases, are more
+efficient and simpler than their deterministic counterparts. This
+course covers the key tools of probabilistic analysis, and
+applications of these tools to understand the behaviors of random
+processes and algorithms. Emphasis is on theoretical foundations,
+though we will apply this theory broadly, discussing applications in
+machine learning and data analysis, networking, and systems.
+-->
+  
+<p>
+
+  <b>Course outline</b> (subject to change):
+  <ul>
+    <li>Classical permissioned consensus.
+      <ul>
+	<li>Types of adversaries and synchrony models, Dolov-Strong Byzantine broadcast protocol, FLP impossibility result for asynchronous consensus, tight fault-tolerant bounds in the partially synchronous model.
+      </ul>
+    <li>Permissionless consensus.
+      <ul>
+	<li>Nakamoto (longest-chain) consensus, guarantees for the Bitocin backbone protocol, committee-based reductions to BFT-type permissioned protocols, the CAP theorem.
+      </ul>
+    <li>Sybil-resistance.
+      <ul>
+	<li>Proof-of-work, difficulty adjustment, selfish mining; proof-of-stake, VRFs and VDFs, etc.
+      </ul>
+    <li>Bitcoin deep dive.
+      <ul>
+	<li>Block structure, Merkle trees, UTXOs, light clients, scaling Bitcoin via payment channels and the Lightning network.
+      </ul>
+    <li>Ethereum deep dive.
+      <ul>
+    <li>Block structure, gas and the EVM, the EIP-1559 transaction fee mechanism, scaling Ethereum via optimistic and zk-rollups, plans for ETH 2.0.
+      </ul>
+    <li>Newer-generation layer-1 consensus protocols (e.g., Solana and Avalanche).
+    <li>The multi-chain vision: interoperability and bridges.
+    <li>DeFi (decentralized finance) primitives.
+      <ul>
+	<li>Stablecoins, oracles.
+      </ul>
+    <li>DeFi applications.
+      <ul>
+	<li>Borrowing, lending, trading via automated market makers.
+      </ul>
+    <li>Miner extractable value (MEV) and interactions between the consensus and application layers.
+    <li>(Time permitting) Approaches to protocol governance.
+      <li>(Time permitting) A look ahead: DAOs, NFTs, Web3, etc.
+
+      
+      </ul>
+  
+
+<b>Textbook:</b> There is no required textbook for the course;
+lectures are the sole required source of content.
+Supplementary reading will be posted as part of the lecture schedule, below.
+
+<p>
+
+<b><p class="header">Coursework</p></b>
+
+    <ul>
+      
+
+<!--
+<li><b>Exercise Sets (0%)</b>: 
+Exercise sets will be handed out weekly and are meant to help
+you keep up with the course material.
+Do not turn in your solutions.  Think about them and discuss with
+fellow students or the course staff any that you cannot answer.
+At least half of each exam will consist of 
+problems on these exercise sets or variations thereof.
+<ul>
+<li><a href="e/e1.pdf">Week 1 Exercises</A> (Posted Wed Sept 4)
+<li><a href="e/e2.pdf">Week 2 Exercises</a> (Posted Wed Sept 11)
+<li><a href="e/e3.pdf">Week 3 Exercises</a> (Posted Wed Sept 18)
+<li><a href="e/e4.pdf">Week 4 Exercises</a> (Posted Wed Sept 25)
+<li><a href="e/e5.pdf">Week 5 Exercises</a> (Posted Wed Oct 2)
+<li><a href="e/e6.pdf">Week 6 Exercises</a> (Posted Wed Oct 9)
+<li><a href="e/e7.pdf">Week 7 Exercises</a> (Posted Wed Oct 16)
+<li>[No exercise set on Oct 23.]
+<li><a href="e/e8.pdf">Week 9 Exercises</a> (Posted Wed Oct 30)
+<ul>
+<li>Typo in Exercise 37 fixed 12/2/19.
+  </ul>
+<li>[No exercise set on Nov 6.]
+<li><a href="e/e9.pdf">Week 11 Exercises</a> (Posted Wed Nov 13)
+<li><a href="e/e10.pdf">Week 12 Exercises</a> (Posted Wed Nov 20)
+  <ul>
+    <li>Typo in Exercise 48 fixed on 12/5/19.
+      </ul>
+<li><a href="e/e11.pdf">Week 13-14 Exercises</a> (Posted Mon Dec 2)
+</ul>
+
+-->
+
+<p>
+
+<li><b>Problem Sets (60%)</b>: 
+  There will be a number of problem sets, around 8-9 in total.
+  Problem sets can be completed in pairs.  Further details TBA.
+<!--
+  Here is the schedule:
+<ul>
+  <li><a href="ps/ps1.pdf">Problem Set #1</a>
+ (Due Wed Sept 25.)
+<li><a href="ps/ps2.pdf">Problem Set #2</a>
+  (Due Wed Oct 9.)
+<li>  <a href="ps/ps3.pdf">Problem Set #3</a>
+  (Due Wed Oct 30.)
+<li>  <a href="ps/ps4.pdf">Problem Set #4</a>
+  (Due Mon Nov 18.)
+<li>  <a href="ps/ps5.pdf">Problem Set #5</a>
+  (Due Wed Dec 4.)
+  <ul>
+    <li>Typo in Problem 30 fixed 11/25/19.
+</ul>
+</ul>
+-->
+
+<!--
+<p>
+
+<li><b>Problem Set Policies</b>: 
+<ul>
+<li>These are challenging and you are strongly encouraged to form
+  groups, of up to three students.  Each group should turn in a single
+  write-up (all students of the group receive the same score).
+<li>You can form different groups for different problem sets.
+<li>You can discuss problems with students from other groups
+verbally and at a high level only.
+<li>
+Except where otherwise noted, you may refer to your course notes, the
+  textbooks and research papers listed on the course Web
+  page <b>only</b>. You cannot refer to textbooks, handouts, or
+  research papers that are not listed on the course home page. If you
+  do use any approved sources, make you sure you cite them
+  appropriately, and make sure that all your words are your own.
+<li>You are strongly encouraged to use LaTex to typeset your write-up.
+Here's a <a href="template.tex">LaTeX template</a> that you can use to 
+type up solutions.  <a
+href="http://en.wikibooks.org/wiki/LaTeX">Here</a> 
+and <a href="http://tobi.oetiker.ch/lshort/lshort.pdf">here</a> are good
+introductions to LaTeX.
+<li><b>Honor code:</b> We expect you to abide by the computer science department's
+  <a href="https://www.cs.columbia.edu/education/honesty/">policies and procedures regarding academic honesty</a>.
+<li><b>Submission instructions:</b> 
+  We are using Gradescope for the homework submissions. Go to
+  <a href="http://www.gradescope.com">www.gradescope.com</a> to either login or create a new
+  account. Use the 
+  course code 9D6V5E to register for this class. Only one group member
+  needs to submit the assignment. When submitting, please remember to
+  add all group member names onto Gradescope.
+
+</ul>
+
+-->
+
+  <p>
+
+<li><b>Late Days</b>: 
+<ul>
+<li>One late day equals a 24-hour extension.
+<li>Each student has three free late days.
+<li>At most two late days can be applied to a single assignment.
+  <!--;
+after Friday (following the original due date) no solutions
+  will be accepted.
+-->
+<li>Each late day used after the first two will result in a 25%
+  penalty.
+<ul>
+<li>Example: a student had one free late day remaining but his/her
+  group uses two late days on a Problem Set.  If the group's write-up
+  earns p points, the student receives a final score of .75*p points
+  for the assignment.
+</ul>
+
+</ul>
+
+<p>
+
+  <li><b>Research project (40%)</b>: To be completed in teams of 3-4
+students. The project can be theoretical or application-focused, and
+should relate to the course content but otherwise can be on a topic of
+your choosing. A single report of 15-20 pages will be due shortly
+after the final lecture.
+
+    </ul>
+    
+<p>
+
+
+<h3>Lecture Schedule</h3>
+
+<p>
+
+  <ul>
+    <li><b>Lecture 1 (Thu Sept 9):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 2 (Tue Sept 14):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 3 (Thu Sept 16):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 4 (Tue Sept 21):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 5 (Thu Sept 23):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 6 (Tue Sept 28):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 7 (Thu Sept 30):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 8 (Tue Oct 5):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 9 (Thu Oct 7):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 10 (Tue Oct 12):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 11 (Thu Oct 14):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 12 (Tue Oct 19):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 13 (Thu Oct 21):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 14 (Tue Oct 26):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 15 (Thu Oct 28):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+<li>[no class on Tue Nov 2 --- academic holiday]
+  </ul>
+  
+<p>
+  
+  <ul>
+    <li><b>Lecture 16 (Thu Nov 4):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 17 (Tue Nov 9):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 18 (Thu Nov 11):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 19 (Tue Nov 16):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 20 (Thu Nov 18):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 21 (Tue Nov 23):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+<li>[no class on Thu Nov 25 --- academic holiday]
+  </ul>
+  
+<p>
+  
+  <ul>
+    <li><b>Lecture 22 (Tue Nov 30):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 23 (Thu Dec 2):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 24 (Tue Dec 7):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+  <ul>
+    <li><b>Lecture 25 (Thu Dec 9):</b> TBA.
+      <ul>
+	<li>Supplementary reading:
+      </ul></ul>
+	
+<p>
+
+</ul>      
